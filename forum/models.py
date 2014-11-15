@@ -35,9 +35,6 @@ class User(AbstractBaseUser):
     
     def get_short_name(self):
         return self.display_name
-
-class Tag(models.Model):
-    name = models.CharField(max_length=32, unique=True)
    
 class Post(models.Model):
     poster = models.ForeignKey(User)
@@ -49,7 +46,6 @@ class Post(models.Model):
 
 class Thread(Post):
     subforum = models.ForeignKey(Subforum)
-    tags = models.ManyToManyField(Tag)
     title = models.CharField(max_length=128)
     
     def get_url(self):
