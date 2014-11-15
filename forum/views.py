@@ -28,7 +28,7 @@ def login(request):
     if request.method == 'GET':
         if request.user.is_authenticated():
             return redirect('/')
-    	return render(request, 'login.html')
+        return render(request, 'login.html')
     elif request.method == 'POST':
         email = request.POST['email']
         password = request.POST['password']
@@ -61,21 +61,21 @@ def post(request):
         
 
 def register(request):
-	email = request.POST['email']
+    email = request.POST['email']
     if validateEmail(email):
-	  user = User(email = email,display_name = email)
-	  user.save();
-	  raw_password = randint(1000000,9999999)
-      user.set_password(raw_password)
-      send_mail('Welcome to Claremont Academia!','You temporary password is '+ raw_password+'.', \
-    	'claremont_academia@yahoo.com',[email],fail_silently=False)
-      return redirect('/login/')
+        user = User(email = email,display_name = email)
+        user.save();
+        raw_password = randint(1000000,9999999)
+        user.set_password(raw_password)
+        send_mail('Welcome to Claremont Academia!','You temporary password is '+ raw_password+'.', \
+        'claremont_academia@yahoo.com',[email],fail_silently=False)
+        return redirect('/login/')
     else: render(request,'login.html',{'invalidate_email':True})
 
 def validateEmail (email):
-	if re.match(r'\w+@pomona.edu$',email) ! = None:
+	if re.match(r'\w+@pomona.edu$',email) is not None:
 		return True
-	else return False
+	else: return False
 
 
 
