@@ -39,6 +39,8 @@ INSTALLED_APPS = (
     'forum'
 )
 
+AUTH_USER_MODEL = 'forum.User'
+
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
