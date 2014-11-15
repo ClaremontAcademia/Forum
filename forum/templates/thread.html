@@ -23,11 +23,12 @@ Tags: {% for tag in thread.tags.all %} {{tag.name}}+'; ' {% endfor %}
     {% endif %}
 
 
-<form role="form">
+<form role="form" action="/comment/{{thread.id}}/" method="post">
+        {% csrf_token %}
     <div class="form-group">
         <label for="thread_body">What do you want to say to {{thread.poster}}?</label>
         <textarea class="form-control" id="thread_body" rows="5" name="content"></textarea>
     </div>
-    <button type="submit" style="margin-top: 5px; padding-left: 30px; padding-right: 30px; margin-bottom: 10px;" class="btn btn-primary btn-default pull-right" action="/comment/"+{{thread.id}} method="post">Reply</button>
+    <button type="submit" style="margin-top: 5px; padding-left: 30px; padding-right: 30px; margin-bottom: 10px;" class="btn btn-primary btn-default pull-right">Reply</button>
 </form>
 {% endblock %}

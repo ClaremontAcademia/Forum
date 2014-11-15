@@ -88,3 +88,4 @@ def comment(request, thread_id):
     c = Comment(poster = request.user, content = request.POST['content'], thread = thread)
     c.save()
     #return?
+    return render(request,'thread.html',{'thread':thread})
