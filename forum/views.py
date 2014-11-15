@@ -5,7 +5,7 @@ from forum.models import User, Subforum, Thread, Department
 from random import randint
 from django.core.mail import send_mail
 import re
-from django.utils import simplejson
+import json
 
 # Create your views here.
 def index(request):
@@ -81,5 +81,5 @@ def validateEmail (email):
 def get_department(request, department_name):
     department = Department.objects.get(name = department_name)
     data = [(c.name, c.full_name) for c in department.class_set.all()]
-    dump = simplejson.dumps(dict(data))
+    dump = json.dumps(dict(data))
     return HttpResponse(data, mimetype='application/json')
