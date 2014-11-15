@@ -1,7 +1,9 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from django.contrib.auth import authenticate, login as do_login
-from forum.models import User, Subforum, Thread, Department, Comment
+
+from forum.models import User, Subforum, Thread, Department,Class,Comment
+
 from random import randint
 from django.core.mail import send_mail
 import re
@@ -45,7 +47,7 @@ def post(request):
     #if not request.user.is_authenticated():
     #    return redirect('/login/')
     if request.method == 'GET':
-        context = {'departments': Department.objects.all(), 'classes': Class.objects.all}
+        context = {'departments': Department.objects.all(), 'classes': Class.objects.all()}
         return render(request, 'post.html', context)
     elif request.method == 'POST':
         subforum = Subforum.objects.get(name = request.POST['course'])
