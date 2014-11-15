@@ -15,7 +15,7 @@
 
     <div style="white-space: nowrap;" class="form-group">
         <div style="width:50%; white-space: normal; display: inline-block;">
-            <select class="form-control" name="department">
+            <select onchange="myFunction()" class="form-control" name="department">
                 {% for dep in departments %}<option value="{{ dep.name }}">{{ dep.full_name }}</option>{% endfor %}
             </select>
         </div>
@@ -29,7 +29,8 @@
 </form>
 
 <script>
-    $('select[name=department]').change(function() {
+alert();
+    function myFunction() {
         var department_name = $(this).val();
         var request_url = '/get_department/' + department_name + "/";
         $.ajax({
