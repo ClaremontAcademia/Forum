@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block leftblock %}
+
+<h1 class="blog-post-title">{{ thread.title }}</h1>
+<span class="post-metadata">
+    <i style="font-size: 14px; padding-right:3px; padding-bottom: 8px;" class="fa fa-calendar"></i>
+    {{ thread.date }}
+</span>
+<span class="post-metadata">
+    <i style="font-size: 14px; padding-left:10px; padding-right:3px; padding-bottom: 8px;" class="fa fa-user"></i>
+    {{ thread.poster }}
+</span>
+<div style="border-bottom: 1px solid #eee;"></div>
+<p style="text-indent: 30px; margin-top: 10px;">{{thread.content}}</p>
+Tags: {% for tag in thread.tags.all %} {{tag.name}}+'; ' {% endfor %}
+<div style="margin-top: 10px; border-bottom: 1px solid #eee;"></div>
+    {% if thread.comment_set.all %}
+        {% for comment in thread.comment_set.all %}
+            <p style="text-indent: 30px; margin-top: 10px;">{{comment.content}}</p>
+            <div align="right">Posted by {{comment.poster}} at {{comment.date}}</div>
+        {% endfor %}
+    {% endif %}
+
+
+<form role="form" action="/comment/{{thread.id}}/" method="post">
+        {% csrf_token %}
+    <div class="form-group">
+        <label for="thread_body">What do you want to say to {{thread.poster}}?</label>
+        <textarea class="form-control" id="thread_body" rows="5" name="content"></textarea>
+    </div>
+    <button type="submit" style="margin-top: 5px; padding-left: 30px; padding-right: 30px; margin-bottom: 10px;" class="btn btn-primary btn-default pull-right">Reply</button>
+</form>
+{% endblock %}
