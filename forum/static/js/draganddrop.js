@@ -2,7 +2,14 @@ $(function() {
     $(".dropdown-menu li a").draggable({
         appendTo: "body",
         helper: "clone",
+        cursor: "move",
         zIndex: 10000
+    });
+    $(".favorites").draggable({
+        appendTo: "body",
+        helper: "clone",
+        cursor: "move",
+        zIndex: 10000,
     });
     $(".favorites").droppable({
         activeClass: "ui-state-default",
