@@ -12,6 +12,7 @@ urlpatterns = patterns('',
     url(r'^login/$',views.login,name="login"),
     url(r'^register/$',views.register,name="register"),
     url(r'^forums/([a-z]+/)?[a-z0-9]+/(?P<id>[0-9]+)/$',views.thread, name='thread'),
-    url(r'^post/$',views.post,name='post'),                                                           
+    url(r'^post/$',views.post,name='post'),
+    url(r'^get_department/(?P<department_name>[a-z]+)/$', views.get_department, name='get_department'),
     url(r'^admin/', include(admin.site.urls)),
 )
