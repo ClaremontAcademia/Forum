@@ -1,57 +1,66 @@
-<h1>Announcement</h1>
-
 <script>
-$('#myTab a').click(function (e) {
-  e.preventDefault()
-  $(this).tab('show')
-})
+    $('#myTab a').click(function(e) {
+        e.preventDefault()
+        $(this).tab('show')
+    })
 </script>
 
-<div role="tabpanel">
-
-  <!-- Nav tabs -->
-  <ul class="nav nav-tabs" role="tablist">
-    <li role="presentation" class="active"><a href="#OfficeHours" aria-controls="OfficeHours" role="tab" data-toggle="tab">Office Hours</a></li>
-    <li role="presentation"><a href="#MentorSessions" aria-controls="MentorSessions" role="tab" data-toggle="tab">Mentor Sessions</a></li>
-    <li role="presentation"><a href="#Colloquium" aria-controls="Colloquium" role="tab" data-toggle="tab">Colloquium</a></li>
-  </ul>
-
-  <!-- Tab panes -->
-  <div class="tab-content">
-
-    <div role="tabpanel" class="tab-pane active" id="OfficeHours">
-    {% if user.forums %}
-      <ul>
-      {% for forum in user.forums %}
-        {% if forum.office_hours%}
-          <li>{{forum.name}}:{{forum.office_hours}}</li>
-        {%endif%}
-      {%endfor%}
-    {% endif %}
+<div class="col-sm-4 col-sm-offset-1 blog-sidebar">
+    <div class="sidebar-module">
+        <div style="width: 206px; margin: 0 auto;">
+            <a href="#" class="btn btn-primary btn-lg">Post New Thread</a>
+        </div>
     </div>
+    <div style="margin-top: 20px;" class="sidebar-module">
+        <div role="tabpanel">
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active"><a href="#OfficeHours" aria-controls="OfficeHours" role="tab" data-toggle="tab">Office Hours</a></li>
+                <li role="presentation"><a href="#MentorSessions" aria-controls="MentorSessions" role="tab" data-toggle="tab">Mentor Sessions</a></li>
+                <li role="presentation"><a href="#Colloquium" aria-controls="Colloquium" role="tab" data-toggle="tab">Colloquium</a></li>
+            </ul>
 
-    <div role="tabpanel" class="tab-pane" id="MentorSessions">
-    {% if user.forums %}
-      <ul>
-      {% for forum in user.forums %}
-        {% if forum.mentor_sessions%}
-          <li>{{forum.name}}:{{forum.mentor_sessions}}</li>
-        {%endif%}
-      {%endfor%}
-    {% endif %}
+            <!-- Tab panes -->
+            <div class="tab-content">
+
+                <div role="tabpanel" class="tab-pane active" id="OfficeHours">
+                    {% if user.forums %}
+                    <ul>
+                        {% for forum in user.forums %}
+                        {% if forum.office_hours%}
+                        <li>{{forum.name}}:{{forum.office_hours}}</li>
+                        {%endif%}
+                        {%endfor%}
+                        {% endif %}
+                </div>
+
+                <div role="tabpanel" class="tab-pane" id="MentorSessions">
+                    {% if user.forums %}
+                    <ul>
+                        {% for forum in user.forums %}
+                        {% if forum.mentor_sessions%}
+                        <li>{{forum.name}}:{{forum.mentor_sessions}}</li>
+                        {%endif%}
+                        {%endfor%}
+                        {% endif %}
+                </div>
+
+                <div role="tabpanel" class="tab-pane" id="Colloquium">
+                    {% if user.forums %}
+                    <ul>
+                        {% for forum in user.forums %}
+                        {% if forum.colloquiums%}
+                        <li>{{forum.name}}:{{forum.colloquiums}}</li>
+                        {%endif%}
+                        {%endfor%}
+                        {% endif %}
+                </div>
+
+            </div>
+
+        </div>
     </div>
+</div><!-- /.blog-sidebar -->
 
-    <div role="tabpanel" class="tab-pane" id="Colloquium">
-    {% if user.forums %}
-      <ul>
-      {% for forum in user.forums %}
-        {% if forum.colloquiums%}
-          <li>{{forum.name}}:{{forum.colloquiums}}</li>
-        {%endif%}
-      {%endfor%}
-    {% endif %}
-    </div>
+</div><!-- /.row -->
 
-  </div>
-
-</div>
