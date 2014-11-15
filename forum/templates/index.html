@@ -1,13 +1,25 @@
 {% extends "base.html" %}
 
 {% block leftblock %}
-    {% if forum %}
-        <h1>{{ forum.full_name }}</h1>
-    {% endif %}
+
+
+{% if forum %}
+<h1>{{ forum.full_name }}</h1>
+{% endif %}
+
+<div class="blog-post">
     {% for thread in threads %}
-        <a href="{{ thread.get_url }}">
-            <h2>{{ thread.title }}</h2>
-            <div>{{ thread.date }}</div>
-        </a>
+        <h2 class="blog-post-title"><a href="{{ thread.get_url }}">{{ thread.title }}</a></h2>
+        <p class="blog-post-meta">{{ thread.date }} by {{ thread.poster }}</p>
+        <p>{{ thread.someContent }}</p>
     {% endfor %}
+</div><!-- /.blog-post -->
+
+<nav>
+    <ul class="pager">
+        <li><a href="#">Previous</a></li>
+        <li><a href="#">Next</a></li>
+    </ul>
+</nav>
+
 {% endblock %}
