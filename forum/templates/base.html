@@ -11,8 +11,9 @@
         <link href="/static/css/bootstrap.css" rel="stylesheet">
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
         <style>
+            #ca {font-size: 15px}
             body {
-                padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+                padding-top: 100px; /* 60px to make the container go all the way to the bottom of the topbar */
             }
         </style>
         <link href="/static/css/bootstrap-responsive.css" rel="stylesheet">
@@ -90,14 +91,23 @@
                     </ul>
 
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="/">Claremont Academia</a></li>
+                        <li><a href="/" id="ca">Claremont Academia</a></li>
+                    </ul>
+                    
+                    
+                    <ul class="nav navbar-nav navbar-right">
+                        {% if user.is_authenticated %}
+                        <li><a href="/login/">Welcome, {{user.email}}!</a></li>
+                        {% else %}
+                        <li><a href="/login/">Log in!</a></li>
+                        {% endif %}
                     </ul>
 
                     <form class="navbar-form" role="search">
                         <div class="input-group">
                             <input type="text" class="form-control" placeholder="Search...">
                             <span class="input-group-btn">
-                                <button type="submit" class="btn btn-default">
+                                <button type="submit" class="btn btn-default" value="Search!">
                                     <span class="glyphicon glyphicon-search">
                                         <span class="sr-only">Search...</span>
                                     </span>
