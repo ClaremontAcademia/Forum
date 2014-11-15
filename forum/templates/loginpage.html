@@ -3,13 +3,17 @@
     <title>Welcome to Claremont Academia</title>
 </head>
 <h2>Welcome to Claremont Academia</h2>
+<img src="forum/static/img/5clogo.jpeg" alt="logo">
 <body>
-<form>
+<form action="/login/" method="post">
 <fieldset>
-	<legend>Login</legend>
+	<label>
+		Login
+	</label>
+	<br>
 	<label>	
-		Username:
-		<input type="text" name="userlogin" placeholder="enter username">
+		Email:
+		<input type="text" name="userlogin" placeholder="enter email">
 	</label>
 	<br />
 	<label>
@@ -21,39 +25,59 @@
 		<input type="submit" value="login" />
 	</label>
 </fieldset>	
+{% if invalid_login %}Invalid username or password. {% endif %}
+
 </form>
 
 <hr />
 <h4>Don't have and account? <br /> Register!</h4>
 
-<form>
+<form action"/register/" method="post">
 	<fieldset>
-		<legend>Register</legend>
+		<label>
+			Register
+		</label>
+		<br>
+		<label>
+			Confirmation email will be sent to provided address along with temporary password.
+		</label>
+		<br>
 		<label>
 			Claremont Colleges email address:
 			<input type="email" name="emailRegister">
 		</label>
 		<br>
 		<label>
-			Username:
-			<input type="text" name="userRegister">
-		</label>
-		<br>
-		<label>
-			Password:
-			<input type="text" name="passRegister">
-		</label>
-		<br>
-		<label>
-			Confirm Password:
-			<input type="text" name="passRegisterConfirm">
-		</label>
-		<br>
-		<label>
-			<input type="submit" value="Register">
+			<input type="submit" value="register" />
 		</label>
 	</fieldset>
+{% if invalid_email %} Invalid email address {% endif %}
+
 </form>
 
 </body>
 </html>
+
+<style type="text/css">
+	body{
+		font-family: sans-serif;
+	}
+
+	fieldset{
+		background: #E0E0E0;
+		border: 10px solid #B3B3B3;
+		border-radius: 10px;
+		padding: 30px;
+
+	}
+	input#submit{
+
+	}
+
+	input#text{
+		
+	}
+
+
+
+</style>
