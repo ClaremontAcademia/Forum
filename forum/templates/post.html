@@ -3,7 +3,6 @@
 {% block leftblock %}
 
 <form role="form" action="/post/">
-
     <div class="form-group">
         <label for="thread_title">Title</label>
         <input type="text" class="form-control" id="thread_title" placeholder="Title">
@@ -15,7 +14,7 @@
 
     <div style="white-space: nowrap;" class="form-group">
         <div style="width:50%; white-space: normal; display: inline-block;">
-            <select class="form-control" name="department">
+            <select onchange="myFunction()" class="form-control" name="department">
                 {% for dep in departments %}<option value="{{ dep.name }}">{{ dep.full_name }}</option>{% endfor %}
             </select>
         </div>
@@ -25,11 +24,12 @@
         </div>
     </div>
 
-    <button type="submit" style="margin-top: 10px; padding-left: 30px; padding-right: 30px;" class="btn btn-primary btn-lg pull-right">Submit</button>
+    <button type="submit" style="margin-top: 10px; padding-left: 30px; padding-right: 30px;" class="btn btn-primary btn-lg pull-right" action="/post/">Submit</button>
 </form>
 
 <script>
-    $('select[name=department]').change(function() {
+alert();
+    function myFunction() {
         var department_name = $(this).val();
         var request_url = '/get_department/' + department_name + "/";
         $.ajax({
@@ -43,8 +43,6 @@
         })
     })
 </script>
-
-
 
 {% endblock %}
 
