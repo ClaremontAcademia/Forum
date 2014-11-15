@@ -8,16 +8,18 @@ import re
 
 # Create your views here.
 def index(request):
-	return render(request, 'base.html');
+    if not request.user.is_authenticated():
+        return redirect('/login/')
+	return render(request, 'index.html');
 
 def forum(request,forum_name): 
-    if not user.is_authenticated():
+    if not request.user.is_authenticated():
         return redirect('/login/')
     current_forum = get_object_or_404(Subforum,name=forum_name)
     render(request,'forum.html',{"forum":current_forum})
 
 def thread(request,id):
-    if not user.is_authenticated():
+    if not request.user.is_authenticated():
         return redirect('/login/')
     current_thread = get_object_or_404(Thread, id = id)
     return render(request, 'thread.html', {'thread': current_thread})
@@ -38,7 +40,25 @@ def login(request):
             context = {'invalid_login': True}
             return render(request, 'loginpage.html', context)
 
-def post(request):pass
+def post(request):
+    if not request.user.is_authenticated():
+        return redirect('/login/')
+    if request.method == 'GET':
+        return render(request, 'post.html')
+    elif request.method == 'POST':
+        subforum = request.POST['subforum']
+        tags = request.POST['tags']
+        title = request.POST['title']
+        content = request.POST['text']
+        taglist = re.split(r', ', tags)
+        thread = Thread(poster = request.user, content = content, title = title, subforum = subforum)
+        thread.save()
+        for tag in taglist:
+            t = Tag.objects.get(name = tag)
+            thread.tags.add(t)
+        thread.save()
+        return redirect(thread.get_url())
+        
 
 def register(request):
 	email = request.POST['email']
@@ -53,7 +73,7 @@ def register(request):
     else: render(request,'login.html',{'invalidate_email':True})
 
 def validateEmail (email):
-	if re.match('\w+@pomona.edu$',email) ! = None:
+	if re.match(r'\w+@pomona.edu$',email) ! = None:
 		return True
 	else return False
 
