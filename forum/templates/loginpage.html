@@ -80,7 +80,8 @@
         <img src="/static/img/loginbanner.png" alt="logo" height="250" width="620">
         <div style="white-space: nowrap" class="rows forms">
             <div style="padding: 40px; display: inline; vertical-align: middle; float: none; width: 50%; white-space: normal" >
-                <form class="login_form" action="login" method="post">
+                <form class="login_form" action="/login/" method="post">
+                    {% csrf_token %}
                     <fieldset>
                         <legend>
                             Login
@@ -103,7 +104,8 @@
                 </form>
             </div>
             <div style="padding: 40px; display: inline; vertical-align: middle; float: none; width: 50%; white-space: normal">
-                <form class="register_form" action="register" method="post">
+                <form class="register_form" action="/register/" method="post">
+                    {% csrf_token %}
                     <fieldset>
 
                         <legend>
