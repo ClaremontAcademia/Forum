@@ -1,11 +1,9 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from django.contrib.auth import authenticate, login as do_login
-<<<<<<< HEAD
-from forum.models import User, Subforum, Thread, Department,Class
-=======
-from forum.models import User, Subforum, Thread, Department, Comment
->>>>>>> 978b4ede628f934b34598652a05c6fcb4d311ccb
+
+from forum.models import User, Subforum, Thread, Department,Class,Comment
+
 from random import randint
 from django.core.mail import send_mail
 import re
