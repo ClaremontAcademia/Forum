@@ -48,7 +48,7 @@ def post(request):
         context = {'departments': Department.objects.all(), 'classes': Class.objects.all}
         return render(request, 'post.html', context)
     elif request.method == 'POST':
-        subforum = request.POST['course']
+        subforum = Subforum.objects.get(name = request.POST['course'])
         title = request.POST['title']
         content = request.POST['text']
         thread = Thread(poster = request.user, content = content, title = title, subforum = subforum)
