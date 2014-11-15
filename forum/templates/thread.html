@@ -21,7 +21,7 @@ Tags: {% for tag in thread.tags.all %} {{tag.name}}+'; ' {% endfor %}
     <ul>
         {% if comment.reply_set.all %}
         {% for reply in comment.reply_set.all %}
-        <li>{{reply.poster}}:{{reply.content}} at <i>{{reply.date}}</i></li>
+        <li>{{reply.poster}}:{{reply.content}} <i>{{reply.date}}</i></li>
         {% endfor %}
         {% endif %}
     </ul>
