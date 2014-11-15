@@ -1,6 +1,8 @@
 <html>
     <head>
         <title>Welcome to Claremont Academia</title>
+        <link rel="shortcut icon" href="static/img/favicon.ico" type="image/x-icon">
+        <link rel="icon" href="static/img/favicon.ico" type="image/x-icon">
         <link href="/static/css/bootstrap.css" rel="stylesheet">
         <style>
             body {
@@ -28,6 +30,7 @@
 
             form{
                 padding: 50px;
+
             }
 
             fieldset{
@@ -72,15 +75,12 @@
             }
 
             img{
-                padding-top: 20px; 
-                display: block;
-                margin: 0px auto
+                
             }
         </style>
     </head>
     <body>
-        <h2>Welcome to Claremont Academia</h2>
-        <img src="/static/img/5clogo.jpg" alt="logo">
+        <img src="/static/img/loginbanner.png" alt="logo" height="250" width="700">
         <form action="\login\" method="post">
               <fieldset>
                 <legend>
@@ -103,6 +103,7 @@
             </fieldset>	
 
         </form>
+
         <form action"\register\" method="post">
               <fieldset>
 
@@ -121,7 +122,7 @@
                 </label>
                 <br>
                 <label>
-                    <input type="submit" value="register" />
+                    <button type="submit" class="btn btn-primary">Register</button>
                 </label>
             </fieldset>
         </form>
