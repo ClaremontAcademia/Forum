@@ -19,13 +19,14 @@ def post(request):pass
 
 def register(request):
 	email = request.POST['email']
+
 	user = User(email = email,display_name = email)
 	user.save();
 	raw_password = randint(1000000,9999999)
     user.set_password(raw_password)
     send_mail('Welcome to Claremont Academia!','You temporary password is '+ raw_password+'.', \
     	'claremont_academia@yahoo.com',[email],fail_silently=False)
-    return redirect('/forums/login/')
+    return redirect('login/')
 
 
 
