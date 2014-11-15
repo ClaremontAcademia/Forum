@@ -8,19 +8,19 @@ import re
 
 # Create your views here.
 def index(request):
-    if not request.user.is_authenticated():
-        return redirect('/login/')
+    #if not request.user.is_authenticated():
+    #    return redirect('/login/')
 	return render(request, 'index.html');
 
 def forum(request,forum_name): 
-    if not request.user.is_authenticated():
-        return redirect('/login/')
+    #if not request.user.is_authenticated():
+    #    return redirect('/login/')
     current_forum = get_object_or_404(Subforum,name=forum_name)
     render(request,'forum.html',{"forum":current_forum})
 
 def thread(request,id):
-    if not request.user.is_authenticated():
-        return redirect('/login/')
+    #if not request.user.is_authenticated():
+    #    return redirect('/login/')
     current_thread = get_object_or_404(Thread, id = id)
     return render(request, 'thread.html', {'thread': current_thread})
 
@@ -41,8 +41,8 @@ def login(request):
             return render(request, 'loginpage.html', context)
 
 def post(request):
-    if not request.user.is_authenticated():
-        return redirect('/login/')
+    #if not request.user.is_authenticated():
+    #    return redirect('/login/')
     if request.method == 'GET':
         return render(request, 'post.html')
     elif request.method == 'POST':
