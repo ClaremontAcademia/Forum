@@ -12,20 +12,19 @@
     {{ thread.poster }}
 </span>
 <div style="border-bottom: 1px solid #eee;"></div>
-<p style="margin-top: 10px;">{{thread.content}}</p>
+<p style="text-indent: 30px; margin-top: 10px;">{{thread.content}}</p>
 Tags: {% for tag in thread.tags.all %} {{tag.name}}+'; ' {% endfor %}
-<ul id="thread_list">
+<div style="margin-top: 10px; border-bottom: 1px solid #eee;"></div>
     {% if thread.comment_set.all %}
-    {% for comment in thread.comment_set.all %}
-    <li>{{comment.content}}<br> <small>Posted by {{comment.poster}} at {{comment.date}}</small></li>
-    <ul>
-        {% if comment.reply_set.all %}
-        {% for reply in comment.reply_set.all %}
-        <li>{{reply.poster}}:{{reply.content}} <i>{{reply.date}}</i></li>
+        {% for comment in thread.comment_set.all %}
+            <p style="text-indent: 30px; margin-top: 10px;">{{comment.content}}</p>
+            <div align="right">Posted by {{comment.poster}} at {{comment.date}}</div>
         {% endfor %}
-        {% endif %}
-    </ul>
-    {% endfor %}
     {% endif %}
-</ul>
+    <div style="margin-top: 15px;"></div>
+    <div class="form-group">
+        <label for="thread_body">What do you want to say to {{thread.poster}}?</label>
+        <textarea class="form-control" id="thread_body" rows="10"></textarea>
+    </div>
+    <button type="submit" style="margin-top: 5px; padding-left: 30px; padding-right: 30px; margin-bottom: 10px;" class="btn btn-primary btn-default pull-right" action="/post/">Reply</button>
 {% endblock %}
