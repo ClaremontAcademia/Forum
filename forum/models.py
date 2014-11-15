@@ -43,6 +43,9 @@ class Post(models.Model):
     poster = models.ForeignKey(User)
     content = models.TextField()
     date = models.DateTimeField(default = timezone.now)
+    
+    def someContent(self):
+        return content[:250] + "..."
 
 class Thread(Post):
     subforum = models.ForeignKey(Subforum)
