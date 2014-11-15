@@ -7,13 +7,13 @@
 <body>
 <form action="/login/" method="post">
 <fieldset>
-	<label>
+	<legend>
 		Login
-	</label>
+	</legend>
 	<br>
 	<label>	
 		Email:
-		<input type="text" name="userlogin" placeholder="enter email">
+		<input type="email" name="userlogin" placeholder="enter email">
 	</label>
 	<br />
 	<label>
@@ -34,9 +34,9 @@
 
 <form action"/register/" method="post">
 	<fieldset>
-		<label>
+		<legend>
 			Register
-		</label>
+		</legend>
 		<br>
 		<label>
 			Confirmation email will be sent to provided address along with temporary password.
@@ -44,7 +44,7 @@
 		<br>
 		<label>
 			Claremont Colleges email address:
-			<input type="email" name="emailRegister">
+			<input type="email" name="emailRegister" placeholder="enter email">
 		</label>
 		<br>
 		<label>
@@ -61,21 +61,39 @@
 <style type="text/css">
 	body{
 		font-family: sans-serif;
+		text-align: center;
+	}
+
+	h2, h4{
+		border-radius: 10px;
+		background-color: #efefef;
+		padding: 20px 100px;
 	}
 
 	fieldset{
-		background: #E0E0E0;
-		border: 10px solid #B3B3B3;
+		width: 500px;
 		border-radius: 10px;
-		padding: 30px;
+		padding: 20px;
+		text-align: center;
+		border: 1px solid #dcdcdc;
+		text-align: center;
+		margin: auto;
 
 	}
-	input#submit{
+
+	legend{
+		border-radius: 10px;
+		border: 1px solid #dcdcdc;
+		background-color: #efefef;
+		padding: 10px 50px;
 
 	}
 
-	input#text{
-		
+	input{
+		border-radius: 5px;
+		border: 1px solid #dcdcdc;
+		font-size: 110%;
+
 	}
 
 
