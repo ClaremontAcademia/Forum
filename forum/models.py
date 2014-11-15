@@ -3,18 +3,14 @@ from django.contrib.auth.models import AbstractBaseUser
 
 class Subforum(models.Model):
     name = models.CharField(max_length=16)
-    
-    def isDepartment(self): pass
 
 class Department(Subforum):
-    def isDepartment(self):
-        return True
+    colloquiums = models.TextField()
 
 class Class(Subforum):
     department = models.ForeignKey(Department)
-    
-    def isDepartment(self):
-        return False
+    office_hours = models.TextField()
+    mentor_sessions = models.TextField()
 
 class User(AbstractBaseUser):
     email = models.CharField(max_length=64, unique=True)
