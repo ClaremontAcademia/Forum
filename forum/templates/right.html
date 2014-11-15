@@ -23,6 +23,8 @@
                     <li>{{forum.name}}:{{forum.office_hours}}</li>
                     {%endif%}
                     {%endfor%}
+                    {% else %}
+                    <p>Oops! Where are the professors?</p>
                     {% endif %}
             </div>
 
@@ -34,6 +36,8 @@
                     <li>{{forum.name}}:{{forum.mentor_sessions}}</li>
                     {%endif%}
                     {%endfor%}
+                    {% else %}
+                    <p>Oops! Mentors are missing!</p>
                     {% endif %}
             </div>
 
@@ -45,6 +49,8 @@
                     <li>{{forum.name}}:{{forum.colloquiums}}</li>
                     {%endif%}
                     {%endfor%}
+                      {% else %}
+                    <p>There is no colloquium this year!</p>
                     {% endif %}
             </div>
 
