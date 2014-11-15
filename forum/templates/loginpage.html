@@ -23,9 +23,10 @@
 	<br>
 	<label>
 		<input type="submit" value="login" />
+		<br>
+		{% if invalid_login %}Invalid email or password. {% endif %}
 	</label>
 </fieldset>	
-{% if invalid_login %}Invalid username or password. {% endif %}
 
 </form>
 
@@ -50,8 +51,9 @@
 		<label>
 			<input type="submit" value="register" />
 		</label>
+		<br>
+		{% if invalid_email %} Invalid email address {% endif %}
 	</fieldset>
-{% if invalid_email %} Invalid email address {% endif %}
 
 </form>
 
@@ -68,6 +70,11 @@
 		border-radius: 10px;
 		background-color: #efefef;
 		padding: 20px 100px;
+		margin: auto;
+	}
+
+	form{
+		padding: 50px;
 	}
 
 	fieldset{
@@ -93,7 +100,15 @@
 		border-radius: 5px;
 		border: 1px solid #dcdcdc;
 		font-size: 110%;
+	}
 
+	input#submit{
+
+	}
+
+	label{
+		display: block;
+		padding: 10px;
 	}
 
 
