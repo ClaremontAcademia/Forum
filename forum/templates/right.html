@@ -16,9 +16,9 @@
         <div class="tab-content">
 
             <div role="tabpanel" class="tab-pane active" id="OfficeHours">
-                {% if user.forums %}
+                {% if user.forums.all %}
                 <ul>
-                    {% for forum in user.forums %}
+                    {% for forum in user.forums.all %}
                     {% if forum.office_hours%}
                     <li>{{forum.name}}:{{forum.office_hours}}</li>
                     {%endif%}
@@ -27,9 +27,9 @@
             </div>
 
             <div role="tabpanel" class="tab-pane" id="MentorSessions">
-                {% if user.forums %}
+                {% if user.forums.all %}
                 <ul>
-                    {% for forum in user.forums %}
+                    {% for forum in user.forums.all %}
                     {% if forum.mentor_sessions%}
                     <li>{{forum.name}}:{{forum.mentor_sessions}}</li>
                     {%endif%}
@@ -38,9 +38,9 @@
             </div>
 
             <div role="tabpanel" class="tab-pane" id="Colloquium">
-                {% if user.forums %}
+                {% if user.forums.all %}
                 <ul>
-                    {% for forum in user.forums %}
+                    {% for forum in user.forums.all %}
                     {% if forum.colloquiums%}
                     <li>{{forum.name}}:{{forum.colloquiums}}</li>
                     {%endif%}
