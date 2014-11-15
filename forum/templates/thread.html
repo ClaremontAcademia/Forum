@@ -2,42 +2,30 @@
 
 {% block leftblock %}
 
+<h1 class="blog-post-title">{{ thread.title }}</h1>
+<span class="post-metadata">
+    <i style="font-size: 14px; padding-right:3px; padding-bottom: 8px;" class="fa fa-calendar"></i>
+    {{ thread.date }}
+</span>
+<span class="post-metadata">
+    <i style="font-size: 14px; padding-left:10px; padding-right:3px; padding-bottom: 8px;" class="fa fa-user"></i>
+    {{ thread.poster }}
+</span>
+<div style="border-bottom: 1px solid #eee;"></div>
+<p style="margin-top: 10px;">{{thread.content}}</p>
+Tags: {% for tag in thread.tags.all %} {{tag.name}}+'; ' {% endfor %}
 <ul id="thread_list">
-
-<li>
-	<h1>{{thread.title}}</hi>
-</li>
-
-<li>
-	<small>Posted by <b>{{thread.poster.name}}</b> at {{thread.date}} in {{thread.subforum.full_name}}</small>
-</li>
-
-<li>
-	<p>{{thread.content}}</p>
-</li>
-
-<li>
-	<small>Tags:
-		{% for tag in thread.tags.all %}
-		  {{tag.name}}+'; '
-		{% endfor %}
-	</small>
-</li>
-<hr>
-<br>
-<ol>
-{% if thread.comment_set.all %}
-  {% for comment in thread.comment_set.all %}
-     <li>{{comment.content}} <br> <small>Posted by {{comment.poster}} at {{comment.date}}</small></ls>
-   	  <ul>
+    {% if thread.comment_set.all %}
+    {% for comment in thread.comment_set.all %}
+    <li>{{comment.content}}<br> <small>Posted by {{comment.poster}} at {{comment.date}}</small></li>
+    <ul>
         {% if comment.reply_set.all %}
-          {% for reply in comment.reply_set.all %}
-            <li>{{reply.poster}}:{{reply.content}} at <i>{{reply.date}}</i></li>
+        {% for reply in comment.reply_set.all %}
+        <li>{{reply.poster}}:{{reply.content}} at <i>{{reply.date}}</i></li>
+        {% endfor %}
         {% endif %}
-  {% endfor %}
-{% endif %}
+    </ul>
+    {% endfor %}
+    {% endif %}
 </ul>
-
-
-
 {% endblock %}
