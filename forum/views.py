@@ -10,13 +10,13 @@ import re
 def index(request):
     #if not request.user.is_authenticated():
     #    return redirect('/login/')
-	return render(request, 'index.html');
+	return render(request, 'index.html',{'forum': None, 'threads': Thread.objects.order_by('date')[:10]});
 
 def forum(request,forum_name): 
     #if not request.user.is_authenticated():
     #    return redirect('/login/')
     current_forum = get_object_or_404(Subforum,name=forum_name)
-    render(request,'forum.html',{"forum":current_forum})
+    render(request,'index.html',{'forum':current_forum, 'threads': current_forum.thread_set.order_by('date')[:10]})
 
 def thread(request,id):
     #if not request.user.is_authenticated():
@@ -28,7 +28,7 @@ def login(request):
     if request.method == 'GET':
         if request.user.is_authenticated():
             return redirect('/')
-        return render(request, 'login.html')
+        return render(request, 'loginpage.html')
     elif request.method == 'POST':
         email = request.POST['email']
         password = request.POST['password']
@@ -70,7 +70,7 @@ def register(request):
         send_mail('Welcome to Claremont Academia!','You temporary password is '+ raw_password+'.', \
         'claremont_academia@yahoo.com',[email],fail_silently=False)
         return redirect('/login/')
-    else: render(request,'login.html',{'invalidate_email':True})
+    else: render(request,'loginpage.html',{'invalid_email':True})
 
 def validateEmail (email):
 	if re.match(r'\w+@pomona.edu$',email) is not None:
