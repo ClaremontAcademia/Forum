@@ -14,6 +14,8 @@
 <div style="border-bottom: 1px solid #eee;"></div>
 <p style="text-indent: 30px; margin-top: 10px;">{{thread.content}}</p>
 Tags: {% for tag in thread.tags.all %} {{tag.name}}+'; ' {% endfor %}
+<br><br><br>
+
 <div style="margin-top: 10px; border-bottom: 1px solid #eee;"></div>
     {% if thread.comment_set.all %}
         {% for comment in thread.comment_set.all %}

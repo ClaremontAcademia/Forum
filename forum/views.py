@@ -13,13 +13,13 @@ import json
 def index(request):
     #if not request.user.is_authenticated():
     #    return redirect('/login/')
-	return render(request, 'index.html',{'forum': None, 'threads': Thread.objects.order_by('date')[:10]});
+	return render(request, 'index.html',{'forum': None, 'threads': Thread.objects.order_by('-date')[:10]});
 
 def forum(request,forum_name): 
     #if not request.user.is_authenticated():
     #    return redirect('/login/')
     current_forum = get_object_or_404(Subforum,name=forum_name)
-    render(request,'index.html',{'forum':current_forum, 'threads': current_forum.thread_set.order_by('date')[:10]})
+    render(request,'index.html',{'forum':current_forum, 'threads': current_forum.thread_set.order_by('-date')[:10]})
 
 def thread(request,id):
     #if not request.user.is_authenticated():
