@@ -14,19 +14,16 @@
         <style type="text/css">
             body{
                 font-family: sans-serif;
-               
             }
 
             img{
                 display: block;
-
                 margin-left: auto;
                 margin-right: auto;
             }
 
             form{
                 padding-top: 50px;
-
             }
 
             fieldset{
@@ -40,13 +37,14 @@
             div.forms{
                 vertical-align: top;
                 text-align: center;
+                position: relative;
             }
-            form.login_form{
-              display: inline-block;
-           }
-
-            form.register_form{
-              display: inline-block;
+            .login_form{
+                display: inline-block;
+                
+            }
+            .register_form{
+                display: inline-block;
             }
 
             legend{
@@ -54,7 +52,6 @@
                 border: 1px solid #dcdcdc;
                 background-color: #efefef;
                 padding: 10px 50px;
-
             }
 
             input{
@@ -84,53 +81,60 @@
         </style>
     </head>
     <body>
-        <img src="/static/img/loginbanner.png" alt="logo" height="250" width="700">
-    <div class="forms">
-        <form class="login_form" action="\login\" method="post">
-              <fieldset>
-                <legend>
-                    Login
-                </legend>
-                {% if invalid_login %} Invalid email or password. {% endif %}
-                <br>
+        <img src="/static/img/loginbanner.png" alt="logo" height="250" width="600">
+        <div style="white-space: nowrap" class="rows forms">
+            <div style="padding: 40px; display: inline; vertical-align: middle; float: none; width: 50%; white-space: normal" >
+                <form class="login_form" action="login" method="post">
+                    <fieldset>
+                        <legend>
+                            Login
+                        </legend>
+                        {% if invalid_login %} Invalid email or password. {% endif %}
+                        <br>
 
-                <table>
-                    <tr>
-                        <td>Email:</td>
-                        <td><input type="email" name="userlogin" placeholder="enter email"></td>
-                    </tr>
-                    <tr>
-                        <td>Password:</td>
-                        <td><input type="text" name="passlogin" placeholder="enter password"></td>
-                    </tr>
-                </table>
-                <button type="submit" class="btn btn-primary">Login</button>
-            </fieldset>	
-        </form>
-        <form class="register_form" action"\register\" method="post">
-              <fieldset>
+                        <table>
+                            <tr>
+                                <td>Email:</td>
+                                <td><input class="form-control" type="email" name="userlogin" placeholder="enter email"></td>
+                            </tr>
+                            <tr>
+                                <td>Password:</td>
+                                <td><input class="form-control" type="text" name="passlogin" placeholder="enter password"></td>
+                            </tr>
+                        </table>
+                        <button style="padding-left:30px; padding-right:30px;" type="submit" class="btn btn-primary">Login</button>
+                    </fieldset>	
+                </form>
+            </div>
+            <div style="padding: 40px; display: inline; vertical-align: middle; float: none; width: 50%; white-space: normal">
+                <form class="register_form" action="register" method="post">
+                    <fieldset>
 
-                <legend>
-                    Register
-                </legend>
-                {% if invalid_email %} Invalid email address {% endif %}
-                <br>
-                <label>
-                    Confirmation email will be sent to provided address along with temporary password.
-                </label>
-                <br>
-                <label>
-                    Claremont Colleges email address:
-                    <input type="email" name="emailRegister" placeholder="enter email">
-                </label>
-                <br>
-                <label>
-                    <button type="submit" class="btn btn-primary">Register</button>
-                </label>
-            </fieldset>
-        </form>
-    </div>
-    <p class="authors">Kent, ZQ, Alex and Clayton</p>
+                        <legend>
+                            Register
+                        </legend>
+                        {% if invalid_email %} Invalid email address {% endif %}
+                        <br>
+                        <label>
+                            Confirmation email will be sent to provided address along with temporary password.
+                        </label>
+                        <br>
+                        <table>
+                            <tr>
+                                <td>Claremont Colleges Email:</td>
+                                <td><input class="form-control"  type="email" name="emailRegister" placeholder="enter email"></td
+                            </tr>
+                        </table>
+                        <br>
+                        <label>
+                            <button style="padding-left:30px; padding-right:30px;" type="submit" class="btn btn-primary">Register</button>
+                        </label>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+        <div style="margin-top: 50px;"></div>
+        <p align="right" style="margin-right: 50px; position: relative;" class="authors">Kent, ZQ, Alex and Clayton</p>
         <script src="/static/js/jquery.js"></script>
         <script src="/static/js/bootstrap-transition.js"></script>
         <script src="/static/js/bootstrap-alert.js"></script>
