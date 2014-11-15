@@ -19,12 +19,6 @@ Tags: {% for tag in thread.tags.all %} {{tag.name}}+'; ' {% endfor %}
         {% for comment in thread.comment_set.all %}
             <p style="text-indent: 30px; margin-top: 10px;">{{comment.content}}</p>
             <div align="right">Posted by {{comment.poster}} at {{comment.date}}</div>
-            {% if comment.reply_set.all %}
-                {% for reply in comment.reply_set.all %}
-                    <div style="margin-left: 30px; margin-top: 10px; border-bottom: 1px solid #eee;"></div>
-                    <p style="margin-left: 40px; margin-top: 10px;">{{reply.poster}}:{{reply.content}} at {{reply.date}}</p>
-                {% endfor %}
-            {% endif %}
         {% endfor %}
     {% endif %}
 {% endblock %}
