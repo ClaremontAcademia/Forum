@@ -10,7 +10,11 @@ import re
 def index(request):
 	return render(request, 'base.html');
 
-def forum(request,forum_name): pass
+def forum(request,forum_name): 
+    if not user.is_authenticated():
+        return redirect('/login/')
+    current_forum = get_object_or_404(Subforum,name=forum_name)
+    render(request,'forum.html',{"forum":current_forum})
 
 def thread(request,id): pass
 
@@ -41,7 +45,7 @@ def register(request):
       user.set_password(raw_password)
       send_mail('Welcome to Claremont Academia!','You temporary password is '+ raw_password+'.', \
     	'claremont_academia@yahoo.com',[email],fail_silently=False)
-      return redirect('login/')
+      return redirect('/login/')
     else: render(request,'login.html',{'invalidate_email':True})
 
 def validateEmail (email):
