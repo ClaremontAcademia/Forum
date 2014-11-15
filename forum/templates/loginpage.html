@@ -1,6 +1,14 @@
 <html>
     <head>
         <title>Welcome to Claremont Academia</title>
+        <link href="/static/css/bootstrap.css" rel="stylesheet">
+        <style>
+            body {
+                padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+            }
+        </style>
+        <link href="/static/css/bootstrap-responsive.css" rel="stylesheet">
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
         <style type="text/css">
             body{
                 font-family: sans-serif;
@@ -68,18 +76,17 @@
                 display: block;
                 margin: 0px auto
             }
-
         </style>
     </head>
     <body>
         <h2>Welcome to Claremont Academia</h2>
-        <img src="forum\static\img\5clogo.jpeg" alt="logo">
+        <img src="/static/img/5clogo.jpg" alt="logo">
         <form action="\login\" method="post">
               <fieldset>
                 <legend>
                     Login
                 </legend>
-                {% if invalid_login %}Invalid email or password. {% endif %}
+                {% if invalid_login %} Invalid email or password. {% endif %}
                 <br>
 
                 <table>
@@ -92,11 +99,10 @@
                         <td><input type="text" name="passlogin" placeholder="enter password"></td>
                     </tr>
                 </table>
-                <input type="submit" value="login">
+                <button type="submit" class="btn btn-primary">Login</button>
             </fieldset>	
 
         </form>
-
         <form action"\register\" method="post">
               <fieldset>
 
@@ -117,10 +123,22 @@
                 <label>
                     <input type="submit" value="register" />
                 </label>
-
-
             </fieldset>
-
         </form>
+        <script src="/static/js/jquery.js"></script>
+        <script src="/static/js/bootstrap-transition.js"></script>
+        <script src="/static/js/bootstrap-alert.js"></script>
+        <script src="/static/js/bootstrap-modal.js"></script>
+        <script src="/static/js/bootstrap-dropdown.js"></script>
+        <script src="/static/js/bootstrap-scrollspy.js"></script>
+        <script src="/static/js/bootstrap-tab.js"></script>
+        <script src="/static/js/bootstrap-tooltip.js"></script>
+        <script src="/static/js/bootstrap-popover.js"></script>
+        <script src="/static/js/bootstrap-button.js"></script>
+        <script src="/static/js/bootstrap-collapse.js"></script>
+        <script src="/static/js/bootstrap-carousel.js"></script>
+        <script src="/static/js/bootstrap-typeahead.js"></script>
+        <script src="/static/jquery-ui/jquery-ui.js"></script>
+        <script src="/static/js/draganddrop.js"></script>
     </body>
 </html>
