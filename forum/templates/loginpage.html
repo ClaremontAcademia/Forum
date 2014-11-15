@@ -35,20 +35,18 @@
                 padding: 20px;
                 text-align: center;
                 border: 1px solid #dcdcdc;
-                
-
             }
 
+            div.forms{
+                vertical-align: top;
+                text-align: center;
+            }
             form.login_form{
-               float: left;
-               padding-left: 200px;
-               padding-right: 5px;
+              display: inline-block;
            }
 
             form.register_form{
-               float: right;
-              padding-right: 200px;
-              padding-left: 5px;
+              display: inline-block;
             }
 
             legend{
@@ -62,10 +60,6 @@
             input{
                 border-radius: 5px;
                 border: 1px solid #dcdcdc;
-            }
-
-            input#submit{
-
             }
 
             table{
@@ -84,12 +78,14 @@
             p.authors{
                 position: fixed;
                 bottom: 5px;
+                left: 5px;
             }
 
         </style>
     </head>
     <body>
         <img src="/static/img/loginbanner.png" alt="logo" height="250" width="700">
+    <div class="forms">
         <form class="login_form" action="\login\" method="post">
               <fieldset>
                 <legend>
@@ -132,6 +128,8 @@
                     <button type="submit" class="btn btn-primary">Register</button>
                 </label>
             </fieldset>
+        </form>
+    </div>
     <p class="authors">Kent, ZQ, Alex and Clayton</p>
         <script src="/static/js/jquery.js"></script>
         <script src="/static/js/bootstrap-transition.js"></script>
