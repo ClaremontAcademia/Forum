@@ -1,5 +1,4 @@
 *.pyc
-*.sqlite3
 nbproject/project.properties
 nbproject/project.xml
 nbproject/private/private.properties
