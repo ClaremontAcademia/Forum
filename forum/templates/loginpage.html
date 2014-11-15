@@ -1,0 +1,144 @@
+<html>
+    <head>
+        <title>Welcome to Claremont Academia</title>
+        <link href="/static/css/bootstrap.css" rel="stylesheet">
+        <style>
+            body {
+                padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+            }
+        </style>
+        <link href="/static/css/bootstrap-responsive.css" rel="stylesheet">
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+        <style type="text/css">
+            body{
+                font-family: sans-serif;
+                text-align: center;
+            }
+
+            h2, h4{
+                border-radius: 10px;
+                background-color: #efefef;
+            }
+
+            h4{
+                width: 25%;
+                text-align: center;
+                margin: auto;
+            }
+
+            form{
+                padding: 50px;
+            }
+
+            fieldset{
+                width: 500px;
+                border-radius: 10px;
+                padding: 20px;
+                text-align: center;
+                border: 1px solid #dcdcdc;
+                text-align: center;
+                margin: auto;
+
+            }
+
+            legend{
+                border-radius: 10px;
+                border: 1px solid #dcdcdc;
+                background-color: #efefef;
+                padding: 10px 50px;
+
+            }
+
+            input{
+                border-radius: 5px;
+                border: 1px solid #dcdcdc;
+            }
+
+            input#submit{
+
+            }
+
+            table{
+                margin: auto;
+            }
+
+            td{
+                padding: 10px;
+            }
+
+            label{
+                display: block;
+                padding: 10px;
+            }
+
+            img{
+                padding-top: 20px; 
+                display: block;
+                margin: 0px auto
+            }
+        </style>
+    </head>
+    <body>
+        <h2>Welcome to Claremont Academia</h2>
+        <img src="/static/img/5clogo.jpg" alt="logo">
+        <form action="\login\" method="post">
+              <fieldset>
+                <legend>
+                    Login
+                </legend>
+                {% if invalid_login %} Invalid email or password. {% endif %}
+                <br>
+
+                <table>
+                    <tr>
+                        <td>Email:</td>
+                        <td><input type="email" name="userlogin" placeholder="enter email"></td>
+                    </tr>
+                    <tr>
+                        <td>Password:</td>
+                        <td><input type="text" name="passlogin" placeholder="enter password"></td>
+                    </tr>
+                </table>
+                <button type="submit" class="btn btn-primary">Login</button>
+            </fieldset>	
+
+        </form>
+        <form action"\register\" method="post">
+              <fieldset>
+
+                <legend>
+                    Register
+                </legend>
+                {% if invalid_email %} Invalid email address {% endif %}
+                <br>
+                <label>
+                    Confirmation email will be sent to provided address along with temporary password.
+                </label>
+                <br>
+                <label>
+                    Claremont Colleges email address:
+                    <input type="email" name="emailRegister" placeholder="enter email">
+                </label>
+                <br>
+                <label>
+                    <input type="submit" value="register" />
+                </label>
+            </fieldset>
+        </form>
+        <script src="/static/js/jquery.js"></script>
+        <script src="/static/js/bootstrap-transition.js"></script>
+        <script src="/static/js/bootstrap-alert.js"></script>
+        <script src="/static/js/bootstrap-modal.js"></script>
+        <script src="/static/js/bootstrap-dropdown.js"></script>
+        <script src="/static/js/bootstrap-scrollspy.js"></script>
+        <script src="/static/js/bootstrap-tab.js"></script>
+        <script src="/static/js/bootstrap-tooltip.js"></script>
+        <script src="/static/js/bootstrap-popover.js"></script>
+        <script src="/static/js/bootstrap-button.js"></script>
+        <script src="/static/js/bootstrap-collapse.js"></script>
+        <script src="/static/js/bootstrap-carousel.js"></script>
+        <script src="/static/js/bootstrap-typeahead.js"></script>
+        <script src="/static/jquery-ui/jquery-ui.js"></script>
+        <script src="/static/js/draganddrop.js"></script>
+    </body>
+</html>
