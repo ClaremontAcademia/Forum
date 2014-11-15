@@ -30,9 +30,9 @@ def login(request):
             return redirect('/')
         return render(request, 'loginpage.html')
     elif request.method == 'POST':
-        email = request.POST['email']
-        password = request.POST['password']
-        user = authenticate(email = email, password = password)
+        email = request.POST['userlogin']
+        password = request.POST['passlogin']
+        user = authenticate(username = email, password = password)
         if user:
             do_login(request, user)
             return redirect('/')
