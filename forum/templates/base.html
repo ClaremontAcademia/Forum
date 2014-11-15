@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>Bootstrap, from Twitter</title>
+        <title>Claremont Academia</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="">
         <meta name="author" content="">
@@ -108,6 +108,19 @@
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
         </nav>
+
+
+
+{% block leftblock %}
+<img src="static/img/default.jpg">
+{% endblock %}
+
+{% block rightblock %}
+  {% include "announcement.html" %}
+{% endblock %}
+
+
+
 
         <!-- Le javascript
         ================================================== -->
