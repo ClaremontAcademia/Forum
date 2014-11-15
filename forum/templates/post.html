@@ -16,7 +16,7 @@
     <div style="white-space: nowrap;" class="form-group">
         <div style="width:50%; white-space: normal; display: inline-block;">
             <select class="form-control" name="department">
-                {% for dep in Department.objects.all %}<option value="{{ dep.name }}">{{ dep.full_name }}</option>{% endfor %}
+                {% for dep in departments %}<option value="{{ dep.name }}">{{ dep.full_name }}</option>{% endfor %}
             </select>
         </div>
         <div style="width:50%; white-space: normal; display: inline-block;">
@@ -36,7 +36,7 @@
             url: request_url,
             success: function(data) {
                 $.each(data[0], function(key, value) {
-                    $('select[name=course]').append('<option value="' + this.key + '">')
+                    $('select[name=course]').append('<option value="' + this.key + '">' + this.value + '</option>')
                 })
             }
             return false

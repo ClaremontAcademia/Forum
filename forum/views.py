@@ -45,7 +45,8 @@ def post(request):
     #if not request.user.is_authenticated():
     #    return redirect('/login/')
     if request.method == 'GET':
-        return render(request, 'post.html')
+        context = {'departments': Department.objects.all()}
+        return render(request, 'post.html', context)
     elif request.method == 'POST':
         subforum = request.POST['subforum']
         tags = request.POST['tags']
