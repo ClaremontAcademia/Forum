@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block leftblock %}
+
+<ul id="thread_list">
+
+<li>
+	<h1>{{thread.title}}</hi>
+</li>
+
+<li>
+	<small>Posted by <b>{{thread.poster.name}}</b> at {{thread.date}} in {{thread.subforum.full_name}}</small>
+</li>
+
+<li>
+	<p>{{thread.content}}</p>
+</li>
+
+<li>
+	<small>Tags:
+		{% for tag in thread.tags.all %}
+		  {{tag.name}}+'; '
+		{% endfor %}
+	</small>
+</li>
+<hr>
+<br>
+<ol>
+{% if thread.comment_set.all %}
+  {% for comment in thread.comment_set.all %}
+     <li>{{comment.content}} <br> <small>Posted by {{comment.poster}} at {{comment.date}}</small></ls>
+   	  <ul>
+        {% if comment.reply_set.all %}
+          {% for reply in comment.reply_set.all %}
+            <li>{{reply.poster}}:{{reply.content}} at <i>{{reply.date}}</i></li>
+        {% endif %}
+  {% endfor %}
+{% endif %}
+</ul>
+
+
+
+{% endblock %}
