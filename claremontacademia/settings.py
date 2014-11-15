@@ -84,3 +84,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
 STATIC_URL = '/static/'
+
+EMAIL_USE_TLS = True
+EMAIL_HOST = "smtp.yahoo.com"
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'claremont_academia@yahoo.com'
+EMAIL_HOST_PASSWORD = '794613852'
