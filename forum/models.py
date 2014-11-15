@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import AbstractBaseUser
 
 class Subforum(models.Model):
-    name = models.CharField(max_length=16)
+    name = models.CharField(max_length=16, unique=True)
 
 class Department(Subforum):
     colloquiums = models.TextField()

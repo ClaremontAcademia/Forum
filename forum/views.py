@@ -1,7 +1,7 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from django.contrib.auth import authenticate, login as do_login
-from forum.models import User
+from forum.models import User, Subforum, Thread
 from random import randint
 from django.core.mail import send_mail
 
@@ -11,7 +11,11 @@ def index(request):
 
 def forum(request,forum_name): pass
 
-def thread(request,id): pass
+def thread(request,id):
+    if not user.is_authenticated():
+        return redirect('/login/')
+    current_thread = get_object_or_404(Thread, id = id)
+    return render(request, 'thread.html', {'thread': current_thread})
 
 def login(request):
     if request.method == 'GET':
