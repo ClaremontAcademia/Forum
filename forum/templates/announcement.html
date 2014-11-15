@@ -18,9 +18,40 @@ $('#myTab a').click(function (e) {
 
   <!-- Tab panes -->
   <div class="tab-content">
-    <div role="tabpanel" class="tab-pane active" id="OfficeHours">...</div>
-    <div role="tabpanel" class="tab-pane" id="MentorSessions">...</div>
-    <div role="tabpanel" class="tab-pane" id="Colloquium">...</div>
+
+    <div role="tabpanel" class="tab-pane active" id="OfficeHours">
+    <% if forums %>
+      <ul>
+      <% for forum in forums %>
+        <% if forum.office_hours%>
+          <li>{{forum.name}}:{{forum.office_hours}}</li>
+        <%end if%>
+      <%endfor%>
+    <% endif %>
+    </div>
+
+    <div role="tabpanel" class="tab-pane" id="MentorSessions">
+    <% if forums %>
+      <ul>
+      <% for forum in forums %>
+        <% if forum.mentor_sessions%>
+          <li>{{forum.name}}:{{forum.mentor_sessions}}</li>
+        <%end if%>
+      <%endfor%>
+    <% endif %>
+    </div>
+
+    <div role="tabpanel" class="tab-pane" id="Colloquium">
+    <% if forums %>
+      <ul>
+      <% for forum in forums %>
+        <% if forum.colloquiums%>
+          <li>{{forum.name}}:{{forum.colloquiums}}</li>
+        <%end if%>
+      <%endfor%>
+    <% endif %>
+    </div>
+
   </div>
 
 </div>

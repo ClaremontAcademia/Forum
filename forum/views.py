@@ -9,6 +9,7 @@ def forum(request,forum_name): pass
 
 def thread(request,id): pass
 
-def login(request):pass
+def login(request):
+	return render(request, 'login.html')
 
 def post(request):pass
