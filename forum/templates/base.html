@@ -97,7 +97,7 @@
                     
                     <ul class="nav navbar-nav navbar-right">
                         {% if user.is_authenticated %}
-                        <li><a href="/login/">Welcome, {{user.email}}!</a></li>
+                        <li><a href="/login/" data-toggle="tooltip" data-placement="bottom" title="This is your home!">Welcome, {{user.email}}!</a></li>
                         {% else %}
                         <li><a href="/login/">Log in!</a></li>
                         {% endif %}
@@ -144,6 +144,10 @@
         <!-- Le javascript
         ================================================== -->
         <!-- Placed at the end of the document so the pages load faster -->
+        <script>$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
+        </script>
         <script src="/static/js/jquery.js"></script>
         <script src="/static/js/bootstrap-transition.js"></script>
         <script src="/static/js/bootstrap-alert.js"></script>
