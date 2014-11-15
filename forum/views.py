@@ -13,3 +13,8 @@ def login(request):
 	return render(request, 'login.html')
 
 def post(request):pass
+
+def register(request):
+	email = request.POST.email
+	user = User(email = email,display_name = email)
+	user.save();
