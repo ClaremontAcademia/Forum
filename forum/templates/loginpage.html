@@ -82,6 +82,7 @@
         <h2>Welcome to Claremont Academia</h2>
         <img src="/static/img/5clogo.jpg" alt="logo">
         <form action="/login/" method="post">
+        {% csrf_token %}
               <fieldset>
                 <legend>
                     Login

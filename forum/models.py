@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import AbstractBaseUser
+from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 from django.utils import timezone
 
 class Subforum(models.Model):
@@ -27,6 +27,8 @@ class User(AbstractBaseUser):
     forums = models.ManyToManyField(Subforum)
     
     USERNAME_FIELD = 'email'
+    
+    objects = BaseUserManager()
     
     def get_full_name(self):
         return self.email
