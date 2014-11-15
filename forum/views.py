@@ -64,7 +64,8 @@ def register(request):
         user = User(email = email,display_name = email)
         user.save();
         raw_password = randint(1000000,9999999)
-        user.set_password(raw_password)
+        user.set_password(str(raw_password))
+        user.save()
         send_mail('Welcome to Claremont Academia!','You temporary password is '+ str(raw_password) +'.', \
         'claremont_academia@yahoo.com',[email],fail_silently=False)
         return redirect('/login/')
