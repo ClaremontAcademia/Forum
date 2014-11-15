@@ -48,7 +48,7 @@ def post(request):
         context = {'departments': Department.objects.all()}
         return render(request, 'post.html', context)
     elif request.method == 'POST':
-        subforum = request.POST['subforum']
+        subforum = request.POST['course']
         tags = request.POST['tags']
         title = request.POST['title']
         content = request.POST['text']
