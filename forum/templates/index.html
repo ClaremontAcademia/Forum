@@ -1,3 +1,9 @@
 {% extends "base.html" %}
 
-<h1>Hello World</h1>
+{% block leftblock %}
+{% if forum %}<h1>{{ forum.full_name }}</h1>{% endif %}
+{% for thread in threads %}
+<h2>{{ thread.title }}</h2>
+<div>{{ thread.date }}</div>
+{% endfor %}
+{% endblock %}

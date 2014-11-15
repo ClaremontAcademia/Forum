@@ -4,6 +4,7 @@ from django.utils import timezone
 
 class Subforum(models.Model):
     name = models.CharField(max_length=16, unique=True)
+    full_name = models.CharField(max_length=128)
     
     def get_url(self):
         return '/forums/' + self.name + '/'

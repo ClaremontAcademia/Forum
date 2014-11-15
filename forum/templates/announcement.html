@@ -33,7 +33,7 @@ $('#myTab a').click(function (e) {
     <div role="tabpanel" class="tab-pane" id="MentorSessions">
     {% if user.forums %}
       <ul>
-      {% for forum in user,forums %}
+      {% for forum in user.forums %}
         {% if forum.mentor_sessions%}
           <li>{{forum.name}}:{{forum.mentor_sessions}}</li>
         {%end if%}
