@@ -25,7 +25,7 @@ $('#myTab a').click(function (e) {
       {% for forum in user.forums %}
         {% if forum.office_hours%}
           <li>{{forum.name}}:{{forum.office_hours}}</li>
-        {%end if%}
+        {%endif%}
       {%endfor%}
     {% endif %}
     </div>
@@ -47,7 +47,7 @@ $('#myTab a').click(function (e) {
       {% for forum in user.forums %}
         {% if forum.colloquiums%}
           <li>{{forum.name}}:{{forum.colloquiums}}</li>
-        {%end if%}
+        {%endif%}
       {%endfor%}
     {% endif %}
     </div>

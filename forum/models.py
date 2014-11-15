@@ -18,7 +18,7 @@ class Class(Subforum):
     mentor_sessions = models.TextField()
     
     def get_url(self):
-        return department.get_url() + self.name + '/'
+        return self.department.get_url() + self.name + '/'
 
 class User(AbstractBaseUser):
     email = models.CharField(max_length=64, unique=True)
@@ -48,7 +48,7 @@ class Thread(Post):
     title = models.CharField(max_length=128)
     
     def get_url(self):
-        return subforum.get_url() + self.id +'/'
+        return self.subforum.get_url() + str(self.id) +'/'
 
 class Comment(Post):
     thread = models.ForeignKey(Thread)
