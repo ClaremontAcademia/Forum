@@ -19,6 +19,12 @@ class User(AbstractBaseUser):
     forums = models.ManyToManyField(Subforum)
     
     USERNAME_FIELD = 'email'
+    
+    def get_full_name(self):
+        return self.email
+    
+    def get_short_name(self):
+        return self.display_name
 
 class Tag(models.Model):
     name = models.CharField(max_length=32)
