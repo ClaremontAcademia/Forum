@@ -36,7 +36,7 @@ $('#myTab a').click(function (e) {
       {% for forum in user.forums %}
         {% if forum.mentor_sessions%}
           <li>{{forum.name}}:{{forum.mentor_sessions}}</li>
-        {%end if%}
+        {%endif%}
       {%endfor%}
     {% endif %}
     </div>
