@@ -54,10 +54,10 @@
                             <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
                                 {% for department in departments %}
                                 <li class="dropdown-submenu">
-                                    <a tabindex="-1" href="{{ department.get_url }}">{{ department }}</a>
+                                    <a tabindex="-1" href="{{ department.get_url }}">{{ department.full_name }}</a>
                                     <ul class="dropdown-menu">
                                         {% for class in classes %}       
-                                        <li><a href="{{ class.get_url }}">{{ class }}</a></li>
+                                        <li><a href="{{ class.get_url }}">{{ class.full_name }}</a></li>
                                         {% endfor %}
                                     </ul>
                                 </li>
