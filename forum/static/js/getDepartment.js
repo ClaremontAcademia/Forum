@@ -1,4 +1,8 @@
-function myFunction() {
+$(document).ready(function() {
+
+
+
+$('select[name=campus]').change(function(){
     var department_name = $(this).val();
     var request_url = '/get_department/' + department_name + "/";
     $.ajax({
@@ -7,7 +11,9 @@ function myFunction() {
             $.each(data[0], function(key, value) {
                 $('select[name=course]').append('<option value="' + this.key + '">' + this.value + '</option>');
             });
-            return false;
         }
     })
 }
+)
+
+});

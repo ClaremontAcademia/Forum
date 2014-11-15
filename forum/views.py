@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from django.contrib.auth import authenticate, login as do_login
-from forum.models import User, Subforum, Thread, Department
+from forum.models import User, Subforum, Thread, Department, Comment
 from random import randint
 from django.core.mail import send_mail
 import re
@@ -45,19 +45,13 @@ def post(request):
     #if not request.user.is_authenticated():
     #    return redirect('/login/')
     if request.method == 'GET':
-        context = {'departments': Department.objects.all()}
+        context = {'departments': Department.objects.all(), 'classes': Class.objects.all}
         return render(request, 'post.html', context)
     elif request.method == 'POST':
         subforum = request.POST['course']
-        tags = request.POST['tags']
         title = request.POST['title']
         content = request.POST['text']
-        taglist = re.split(r', ', tags)
         thread = Thread(poster = request.user, content = content, title = title, subforum = subforum)
-        thread.save()
-        for tag in taglist:
-            t = Tag.objects.get(name = tag)
-            thread.tags.add(t)
         thread.save()
         return redirect(thread.get_url())
         
@@ -84,3 +78,11 @@ def get_department(request, department_name):
     data = [(c.name, c.full_name) for c in department.class_set.all()]
     dump = json.dumps(dict(data))
     return HttpResponse(data, mimetype='application/json')
+
+def comment(request, thread_id):
+    #if not request.user.is_authenticated():
+    #    return redirect('/login/')
+    thread = Thread.objects.get(id = thread_id)
+    c = Comment(poster = request.user, content = request.POST['content'], thread = thread)
+    c.save()
+    #return?
