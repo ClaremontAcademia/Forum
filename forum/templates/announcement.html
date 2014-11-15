@@ -1,0 +1,26 @@
+<h1>Announcement</h1>
+
+<script>
+$('#myTab a').click(function (e) {
+  e.preventDefault()
+  $(this).tab('show')
+})
+</script>
+
+<div role="tabpanel">
+
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#OfficeHours" aria-controls="OfficeHours" role="tab" data-toggle="tab">Office Hours</a></li>
+    <li role="presentation"><a href="#MentorSessions" aria-controls="MentorSessions" role="tab" data-toggle="tab">Mentor Sessions</a></li>
+    <li role="presentation"><a href="#Colloquium" aria-controls="Colloquium" role="tab" data-toggle="tab">Colloquium</a></li>
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="OfficeHours">...</div>
+    <div role="tabpanel" class="tab-pane" id="MentorSessions">...</div>
+    <div role="tabpanel" class="tab-pane" id="Colloquium">...</div>
+  </div>
+
+</div>
