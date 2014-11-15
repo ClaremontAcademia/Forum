@@ -11,6 +11,7 @@ import json
 
 def render(request, template_name, dictionary = dict([])):
     dictionary.update({'departments': Department.objects.all(), 'classes': Class.objects.all()})
+    oldrender(request, template_name, dictionary)
 
 # Create your views here.
 def index(request):
