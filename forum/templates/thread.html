@@ -21,4 +21,10 @@ Tags: {% for tag in thread.tags.all %} {{tag.name}}+'; ' {% endfor %}
             <div align="right">Posted by {{comment.poster}} at {{comment.date}}</div>
         {% endfor %}
     {% endif %}
+    <div style="margin-top: 15px;"></div>
+    <div class="form-group">
+        <label for="thread_body">What do you want to say to {{thread.poster}}?</label>
+        <textarea class="form-control" id="thread_body" rows="10"></textarea>
+    </div>
+    <button type="submit" style="margin-top: 5px; padding-left: 30px; padding-right: 30px; margin-bottom: 10px;" class="btn btn-primary btn-default pull-right" action="/post/">Reply</button>
 {% endblock %}
