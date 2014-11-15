@@ -1,7 +1,3 @@
-$(document).ready(function() {
-    alert("I am an alert box!");
-});
-
 function myFunction() {
     var department_name = $(this).val();
     var request_url = '/get_department/' + department_name + "/";
