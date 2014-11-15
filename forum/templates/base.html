@@ -109,14 +109,22 @@
             </div><!-- /.container-fluid -->
         </nav>
 
+        <div class="container">
 
+            <div class="row">
+                <div class="col-sm-7 blog-main">
+                    {% block leftblock %}
+                    {% endblock %}
+                </div><!-- /.blog-main -->
+                <div class="col-sm-4 col-sm-offset-1 blog-sidebar">
+                    {% block rightblock %}
+                        {% include "right.html" %}
+                    {% endblock %}
+                </div><!-- /.blog-sidebar -->
 
-{% block leftblock %}
-{% endblock %}
+            </div><!-- /.row -->
 
-{% block rightblock %}
-  {% include "right.html" %}
-{% endblock %}
+        </div><!-- /.container -->
 
 
 
