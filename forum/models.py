@@ -7,7 +7,7 @@ class Subforum(models.Model):
     full_name = models.CharField(max_length=128)
     
     def get_url(self):
-        return '/forums/' + self.name + '/'
+        return '/forums/' + self.name.lower() + '/'
 
 class Department(Subforum):
     colloquiums = models.TextField()
@@ -18,7 +18,7 @@ class Class(Subforum):
     mentor_sessions = models.TextField()
     
     def get_url(self):
-        return self.department.get_url() + self.name + '/'
+        return self.department.get_url() + self.name.lower() + '/'
 
 class User(AbstractBaseUser):
     email = models.CharField(max_length=64, unique=True)
@@ -48,7 +48,11 @@ class Thread(Post):
     title = models.CharField(max_length=128)
     
     def get_url(self):
-        return self.subforum.get_url() + str(self.id) +'/'
+        if isinstance(self.subforum, Class):
+            s = Class.objects.get(name = self.subforum.name).get_url()
+        else:
+            s = self.subforum.get_url()
+        return s + str(self.id) +'/'
 
 class Comment(Post):
     thread = models.ForeignKey(Thread)
