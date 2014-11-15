@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser
+from django.utils import timezone
 
 class Subforum(models.Model):
     name = models.CharField(max_length=16, unique=True)
@@ -38,6 +39,7 @@ class Tag(models.Model):
 class Post(models.Model):
     poster = models.ForeignKey(User)
     content = models.TextField()
+    date = models.DateTimeField(default = timezone.now)
 
 class Thread(Post):
     subforum = models.ForeignKey(Subforum)
