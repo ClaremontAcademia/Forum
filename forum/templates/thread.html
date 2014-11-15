@@ -25,7 +25,7 @@ Tags: {% for tag in thread.tags.all %} {{tag.name}}+'; ' {% endfor %}
 
 <form role="form" action="/comment/{{thread.id}}/" method="post">
         {% csrf_token %}
-    <div class="form-group">
+    <div  style="margin-top: 8px;" class="form-group">
         <label for="thread_body">What do you want to say to {{thread.poster}}?</label>
         <textarea class="form-control" id="thread_body" rows="5" name="content"></textarea>
     </div>
