@@ -3,29 +3,27 @@
     <title>Welcome to Claremont Academia</title>
 </head>
 <h2>Welcome to Claremont Academia</h2>
-<img src="forum/static/img/5clogo.jpeg" alt="logo">
+<img src="forum\static\img\5clogo.jpeg" alt="logo">
 <body>
-<form action="/login/" method="post">
+<form action="\login\" method="post">
 <fieldset>
 	<legend>
 		Login
 	</legend>
+	{% if invalid_login %}Invalid email or password. {% endif %}
 	<br>
-	<label>	
-		Email:
-		<input type="email" name="userlogin" placeholder="enter email">
-	</label>
-	<br />
-	<label>
-		Password:
-		<input type="text" name="passlogin" placeholder="enter password">
-	</label>
-	<br>
-	<label>
-		<input type="submit" value="login" />
-		<br>
-		{% if invalid_login %}Invalid email or password. {% endif %}
-	</label>
+
+	<table>
+		<tr>
+			<td>Email:</td>
+			<td><input type="email" name="userlogin" placeholder="enter email"></td>
+		</tr>
+		<tr>
+			<td>Password:</td>
+			<td><input type="text" name="passlogin" placeholder="enter password"></td>
+		</tr>
+	</table>
+	<input type="submit" value="login">
 </fieldset>	
 
 </form>
@@ -33,11 +31,13 @@
 <hr />
 <h4>Don't have and account? <br /> Register!</h4>
 
-<form action"/register/" method="post">
+<form action"\register\" method="post">
 	<fieldset>
+		
 		<legend>
 			Register
 		</legend>
+		{% if invalid_email %} Invalid email address {% endif %}
 		<br>
 		<label>
 			Confirmation email will be sent to provided address along with temporary password.
@@ -51,8 +51,8 @@
 		<label>
 			<input type="submit" value="register" />
 		</label>
-		<br>
-		{% if invalid_email %} Invalid email address {% endif %}
+		
+		
 	</fieldset>
 
 </form>
@@ -69,7 +69,11 @@
 	h2, h4{
 		border-radius: 10px;
 		background-color: #efefef;
-		padding: 20px 100px;
+	}
+
+	h4{
+		width: 25%;
+		text-align: center;
 		margin: auto;
 	}
 
@@ -99,11 +103,18 @@
 	input{
 		border-radius: 5px;
 		border: 1px solid #dcdcdc;
-		font-size: 110%;
 	}
 
 	input#submit{
 
+	}
+
+	table{
+		margin: auto;
+	}
+
+	td{
+		padding: 10px;
 	}
 
 	label{
@@ -111,6 +122,10 @@
 		padding: 10px;
 	}
 
-
+	img{
+		padding-top: 20px; 
+		display: block;
+		margin: 0px auto
+	}
 
 </style>
