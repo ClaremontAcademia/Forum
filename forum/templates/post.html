@@ -16,11 +16,7 @@
     <div style="white-space: nowrap;" class="form-group">
         <div style="width:50%; white-space: normal; display: inline-block;">
             <select class="form-control" name="department">
-                <option value="cs">Computer Science</option>
-                <option value="math">Mathematics</option>
-                <option value="econ">Economics</option>
-                <option value="japn">Japanese</option>
-                <option value="art">Arts</option>
+                {% for dep in Department.objects.all %}<option value="{{ dep.name }}">{{ dep.full_name }}</option>{% endfor %}
             </select>
         </div>
         <div style="width:50%; white-space: normal; display: inline-block;">
