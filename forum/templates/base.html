@@ -56,7 +56,7 @@
                                 <li class="dropdown-submenu">
                                     <a tabindex="-1" href="{{ department.get_url }}">{{ department.full_name }}</a>
                                     <ul class="dropdown-menu">
-                                        {% for class in classes %}       
+                                        {% for class in department.class_set.all %}       
                                         <li><a href="{{ class.get_url }}">{{ class.full_name }}</a></li>
                                         {% endfor %}
                                     </ul>
