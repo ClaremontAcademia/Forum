@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render as oldrender, redirect, get_object_or_404
 from django.http import HttpResponse
 from django.contrib.auth import authenticate, login as do_login
 
@@ -8,6 +8,10 @@ from random import randint
 from django.core.mail import send_mail
 import re
 import json
+
+def render(request, template_name, dictionary = dict([])):
+    dictionary.update({'departments': Department.objects.all(), 'classes': Class.objects.all()})
+    oldrender(request, template_name, dictionary)
 
 # Create your views here.
 def index(request):
@@ -47,8 +51,7 @@ def post(request):
     #if not request.user.is_authenticated():
     #    return redirect('/login/')
     if request.method == 'GET':
-        context = {'departments': Department.objects.all(), 'classes': Class.objects.all()}
-        return render(request, 'post.html', context)
+        return render(request, 'post.html')
     elif request.method == 'POST':
         subforum = Subforum.objects.get(name = request.POST['course'])
         title = request.POST['title']
