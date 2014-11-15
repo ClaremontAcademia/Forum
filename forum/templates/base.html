@@ -49,39 +49,8 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
-                        <li class="menu-item dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Filter<b class="caret"></b></a>
-                            <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
-                                <li class="dropdown-submenu">
-                                    <a tabindex="-1" href="#">Japanese</a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="#">JAPN111A</a></li>
-                                        <li><a href="#">JAPN111B</a></li>
-                                        <li><a href="#">JAPN125</a></li>
-                                        <li><a href="#">JAPN131</a></li>
-                                        <li><a href="#">JAPN192A</a></li>
-                                        <li><a href="#">JAPN192B</a></li>
-                                    </ul>
-                                </li>
-                                <li class="dropdown-submenu">
-                                    <a tabindex="-1" href="#">Mathematics</a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="#">MATH60</a></li>
-                                        <li><a href="#">MATH103</a></li>
-                                    </ul>
-                                </li>
-                                <li class="dropdown-submenu">
-                                    <a tabindex="-1" href="cs">Computer Science</a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="#">CS51</a></li>
-                                        <li><a href="#">CS52</a></li>
-                                        <li><a href="#">CS62</a></li>
-                                        <li><a href="#">CS81</a></li>                                       
-                                        <li><a href="#">CS190</a></li>                                   
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
+                        {% block filter %}
+                        {% endblock %}
                         <li><a class="favorites" href="#">LGCS</a></li>
                         <li><a class="favorites" href="#">PSYC</a></li>
                         <li><a class="favorites" href="#">ANTH</a></li>
