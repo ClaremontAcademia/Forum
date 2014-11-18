@@ -15,9 +15,9 @@ def render(request, template_name, dictionary = dict([])):
 
 # Create your views here.
 def index(request):
-    #if not request.user.is_authenticated():
-    #    return redirect('/login/')
-	return render(request, 'index.html',{'forum': None, 'threads': Thread.objects.order_by('-date')[:10]});
+    if not request.user.is_authenticated():
+        return redirect('/login/')
+    return render(request, 'index.html',{'forum': None, 'threads': Thread.objects.order_by('-date')[:10]});
 
 def forum(request,forum_name): 
     #if not request.user.is_authenticated():
@@ -93,3 +93,20 @@ def comment(request, thread_id):
     c.save()
     #return?
     return render(request,'thread.html',{'thread':thread})
+
+def settings(request):
+  if request.user.is_authenticated:
+    if request.method == 'GET':
+        return render(request,'settings.html')
+    if request.method == 'POST':
+        user = request.user
+        user.set_password(request.POST['new_password'])
+        user.display_name=request.POST['username']
+        user.save()
+        return redirect('/')
+  else:
+    return redirect('/login/')
+
+
+
+    
