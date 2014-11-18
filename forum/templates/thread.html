@@ -2,6 +2,10 @@
 
 {% block leftblock %}
 
+<style>
+.comment_block{border-top: thick;padding-left: 40px}
+</style>
+
 <h1 class="blog-post-title">{{ thread.title }}</h1>
 <span class="post-metadata">
     <i style="font-size: 14px; padding-right:3px; padding-bottom: 8px;" class="fa fa-calendar"></i>
@@ -12,15 +16,17 @@
     {{ thread.poster }}
 </span>
 <div style="border-bottom: 1px solid #eee;"></div>
-<p style="text-indent: 30px; margin-top: 10px;">{{thread.content}}</p>
+<p style="text-indent: 30px; margin-top: 10px;font-size:15px">{{thread.content}}</p>
 Tags: {% for tag in thread.tags.all %} {{tag.name}}+'; ' {% endfor %}
 <br><br><br>
 
 <div style="margin-top: 10px; border-bottom: 1px solid #eee;"></div>
     {% if thread.comment_set.all %}
         {% for comment in thread.comment_set.all %}
+          <div class="comment_block">
             <p style="text-indent: 30px; margin-top: 10px;">{{comment.content}}</p>
             <div align="right">Posted by {{comment.poster}} at {{comment.date}}</div>
+          </div>
         {% endfor %}
     {% endif %}
 
