@@ -13,7 +13,7 @@
 </span>
 <span class="post-metadata">
     <i style="font-size: 14px; padding-left:10px; padding-right:3px; padding-bottom: 8px;" class="fa fa-user"></i>
-    {{ thread.poster }}
+    {{ thread.poster.display_name }}
 </span>
 <div style="border-bottom: 1px solid #eee;"></div>
 <p style="text-indent: 30px; margin-top: 10px;font-size:15px">{{thread.content}}</p>
@@ -25,7 +25,7 @@ Tags: {% for tag in thread.tags.all %} {{tag.name}}+'; ' {% endfor %}
         {% for comment in thread.comment_set.all %}
           <div class="comment_block">
             <p style="text-indent: 30px; margin-top: 10px;">{{comment.content}}</p>
-            <div align="right">Posted by {{comment.poster}} at {{comment.date}}</div>
+            <div align="right">Posted by {{comment.poster.display_name}} at {{comment.date}}</div>
           </div>
         {% endfor %}
     {% endif %}

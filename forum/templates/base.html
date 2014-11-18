@@ -80,9 +80,9 @@
                     <ul class="nav navbar-nav navbar-right">
                         {% if user.is_authenticated %}
                         {% if user.display_name %}
-                        <li><a href="/settings/" data-toggle="tooltip" data-placement="bottom" title="This is your home!">Welcome, {{user.display_name}}!</a></li>
+                        <li><a href="/settings/" data-toggle="tooltip" data-placement="bottom" title="This is your home!"><i style="font-size: 14px; padding-left:10px; padding-right:3px; padding-bottom: 8px;" class="fa fa-user"></i>{{user.display_name}}!</a></li>
                         {% else %}
-                        <li><a href="/settings/" data-toggle="tooltip" data-placement="bottom" title="This is your home!">Welcome, {{user.email}}!</a></li>
+                        <li><a href="/settings/" data-toggle="tooltip" data-placement="bottom" title="This is your home!"><i style="font-size: 14px; padding-left:10px; padding-right:3px; padding-bottom: 8px;" class="fa fa-user"></i>{{user.email}}!</a></li>
                         {% endif %}
                         {% else %}
                         <li><a href="/login/">Log in!</a></li>

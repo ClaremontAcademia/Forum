@@ -11,7 +11,7 @@
 <div class="blog-post">
     {% for thread in threads %}
         <h2 class="blog-post-title"><a href="{{ thread.get_url }}">{{ thread.title }}</a></h2>
-        <p class="blog-post-meta">{{ thread.date }} by {{ thread.poster }}</p>
+        <p class="blog-post-meta">{{ thread.date }} by {{ thread.poster.display_name }}</p>
         <p>{{ thread.someContent }}</p>
     {% endfor %}
 </div><!-- /.blog-post -->
